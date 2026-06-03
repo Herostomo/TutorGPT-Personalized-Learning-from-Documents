@@ -19,14 +19,7 @@ embedding_model = SentenceTransformer(
     "sentence-transformers/all-MiniLM-L6-v2"
 )
 
-while True:
-
-    question = input(
-        "\nAsk Question (type exit): "
-    )
-
-    if question.lower() == "exit":
-        break
+def ask_question(question):
 
     query_embedding = embedding_model.encode(
         [question]
@@ -58,7 +51,7 @@ Question:
 
 If answer is not present in context,
 say:
-'Information not found in documents.'
+Information not found in documents.
 """
 
     response = ollama.chat(
@@ -71,7 +64,4 @@ say:
         ]
     )
 
-    print("\nAnswer:")
-    print(
-        response["message"]["content"]
-    )
+    return response["message"]["content"]
