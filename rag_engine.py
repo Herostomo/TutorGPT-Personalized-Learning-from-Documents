@@ -16,7 +16,7 @@ with open(
     chunks = pickle.load(f)
 
 embedding_model = SentenceTransformer(
-    "sentence-transformers/all-MiniLM-L6-v2"
+    "  "
 )
 
 def ask_question(question):
@@ -55,7 +55,7 @@ Information not found in documents.
 """
 
     response = ollama.chat(
-        model="llama3",
+        model=" ",
         messages=[
             {
                 "role": "user",
